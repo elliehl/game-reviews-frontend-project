@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import { getAllReviews } from "./api"
+import { useParams } from "react-router-dom"
 import './Styles/Reviews.css'
 
 const Reviews = () => {
@@ -7,19 +9,19 @@ const Reviews = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
 
+    const {category} = useParams()
+
     useEffect(() => {
         setIsLoading(true)
-        fetch(
-            'https://elliehl-board-games-project.herokuapp.com/api/reviews'
-        ).then(res => res.json())
-        .then(data => {
+        getAllReviews(category)
+        .then(reviews => {
             setIsLoading(false)
-            setReviewsList(data.reviews)  
+            setReviewsList(reviews)  
         }).catch((err) => {
             setIsLoading(false)
             setError(err)
         })
-        }, [])
+        }, [category])
 
         if (isLoading) {
             return <h4>Loading...</h4>
