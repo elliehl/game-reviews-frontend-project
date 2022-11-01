@@ -14,7 +14,6 @@ const Categories = () => {
             'https://elliehl-board-games-project.herokuapp.com/api/categories'
         ).then(res => res.json())
         .then(categories => {
-            console.log(categories.categories)
             setIsLoading(false)
             setCategories(categories.categories)  
         }).catch((err) => {
