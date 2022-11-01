@@ -25,6 +25,7 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 1
 }
 
 .bottom-half {
@@ -36,4 +37,11 @@ ul {
 
 h4 {
     text-align: center;
+}
+
+@media screen and (max-width: 280px) {
+    img {
+        width: 100px;
+        height: 100px;
+    }
 }

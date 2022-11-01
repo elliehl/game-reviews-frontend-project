@@ -5,7 +5,8 @@ import './Styles/Reviews.css'
 const Reviews = () => {
     const [reviewsList, setReviewsList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-// need to add error handling for if fetch returns nothing
+    const [error, setError] = useState(null)
+
     useEffect(() => {
         setIsLoading(true)
         fetch(
@@ -14,11 +15,21 @@ const Reviews = () => {
         .then(data => {
             setIsLoading(false)
             setReviewsList(data.reviews)  
+        }).catch((err) => {
+            setIsLoading(false)
+            setError(err)
         })
         }, [])
+
+        if (isLoading) {
+            return <h4>Loading...</h4>
+        }
+
+        if (error !== null) {
+            return <h4>Error: Please go back</h4>
+        }
     
         return (
-            (isLoading ? <h4>Loading...</h4> :
             <div>
                 <ul>
                     {reviewsList.map(
@@ -60,12 +71,10 @@ const Reviews = () => {
                 </ul>
             </div>
         )
-        )
 
 
             
         
 }
-
 
 export default Reviews
