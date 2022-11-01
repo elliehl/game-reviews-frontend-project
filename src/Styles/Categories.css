@@ -1,0 +1,25 @@
+.category-item {
+    text-decoration: none;
+    margin-bottom: 30px;
+    text-align: center;
+    list-style: none;
+    border: 2px solid black;
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: none;
+}
+
+ul {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.category-heading {
+    margin-bottom: 5px;
+}
