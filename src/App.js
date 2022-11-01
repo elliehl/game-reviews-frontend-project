@@ -1,10 +1,12 @@
-import "./App.css";
+import "./Styles/App.css";
+import Header from "./Header";
+import Reviews from "./Reviews";
 
 function App() {
   return (
     <div>
-      <h1>NC Games</h1>
-      <h2>The home of board game reviews</h2>
+      <Header />
+      <Reviews />
     </div>
   );
 }
