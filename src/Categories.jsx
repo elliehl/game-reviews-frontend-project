@@ -42,11 +42,9 @@ const Categories = () => {
                         return (
                             <Link to={`/categories/${slug}`} key={slug} >
                             <li className='category-item'>
-                                <div className="category-heading">
-                                Category: {slug}
+                                <h3 className="slug">{slug.charAt(0).toUpperCase() + slug.slice(1)}</h3>
                                 <br/>
                                 Description: {description}
-                                </div>
                             </li>
                             </Link>
                         )

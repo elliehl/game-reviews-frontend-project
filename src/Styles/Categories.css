@@ -9,6 +9,7 @@
     margin-left: auto;
     margin-right: auto;
     overflow: none;
+    padding: 0 10px 10px 10px;
 }
 
 ul {
@@ -20,6 +21,8 @@ a {
     color: black;
 }
 
-.category-heading {
-    margin-bottom: 5px;
+.slug {
+    padding: 0;
+    margin-bottom: 0;
+    text-decoration: underline;
 }
