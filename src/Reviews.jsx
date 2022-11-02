@@ -39,11 +39,9 @@ const Reviews = () => {
                             owner,
                             title,
                             review_id,
-                            category,
                             review_img_url,
                             created_at,
                             votes,
-                            designer,
                             comment_count
                         }) => {
                         return (
@@ -65,8 +63,6 @@ const Reviews = () => {
                                 <br/>
                                 Review Date: {new Date(created_at).toISOString().split('T')[0]}
                                 </div>
-                                {/* Category: {category} */}
-                                {/* Designer: {designer} */}
                             </li>
                         )
                     })}
