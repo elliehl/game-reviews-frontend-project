@@ -3,10 +3,9 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID } from './api'
 import './Styles/IndividualReview.css'
-import {Link} from 'react-router-dom'
 
 const IndividualReview = () => {
-    const [review, setReview] = useState(null)
+    const [review, setReview] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -22,7 +21,7 @@ const IndividualReview = () => {
             setIsLoading(false)
             setError(err)
         })
-    }, [review])
+    }, [])
 
     if (isLoading) {
         return <h4>Loading...</h4>
@@ -31,16 +30,15 @@ const IndividualReview = () => {
     if (error !== null) {
         return <h4>Error: Please go back</h4>
     }
-
+    
     return (
         <div>
-        <Link to={`/reviews/${review.title}`} key={review_id} ></Link>
-        <li className='review-item'>
-            <div className="top-half">
-            <div className="top-left">
-            <img src={review.review_img_url} alt='The game being reviewed' width='250px' height='250px'/>
+        <li className='review-item-solo'>
+            <div className="top-half-solo">
+            <div className="top-left-solo">
+            <img src={review.review_img_url} alt='The game being reviewed' width='400px' height='400px'/>
             </div>
-            <div className="top-right">
+            <div className="top-right-solo">
             <h3>{review.title}</h3>
             Votes: {review.votes}
             <br />
@@ -48,13 +46,13 @@ const IndividualReview = () => {
             <br/>
             </div>
             </div>
-            <div className="bottom-half">
+            <div className="bottom-half-solo">
             Reviewed by: {review.owner}
             <br/>
-            Review Date: {new Date(review.created_at).toISOString().split('T')[0]}
-            </div>
             Category: {review.category}
+            <br/>
             Designer: {review.designer}
+            </div>
         </li>
         </div>
     )

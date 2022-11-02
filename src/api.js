@@ -12,9 +12,8 @@ export const getAllReviews = (category) => {
 
 export const getReviewByID = (review_id) => {
   return gamesAPI
-    .get("/reviews/:review_id", { params: { review_id } })
+    .get(`/reviews/${review_id}`, { params: { review_id } })
     .then((res) => {
-      console.log(res.data);
-      return res.data.reviews;
+      return res.data.review;
     });
 };
