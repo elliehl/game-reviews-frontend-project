@@ -34,24 +34,20 @@ const IndividualReview = () => {
     return (
         <div>
         <li className='review-item-solo'>
-            <div className="top-half-solo">
-            <div className="top-left-solo">
+            <div className="layout-solo">
             <img src={review.review_img_url} alt='The game being reviewed' width='400px' height='400px'/>
-            </div>
             <div className="top-right-solo">
             <h3>{review.title}</h3>
             Votes: {review.votes}
             <br />
             Comments({review.comment_count})
             <br/>
-            </div>
-            </div>
-            <div className="bottom-half-solo">
             Reviewed by: {review.owner}
             <br/>
             Category: {review.category}
             <br/>
             Designer: {review.designer}
+            </div>
             </div>
         </li>
         </div>
