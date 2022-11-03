@@ -37,6 +37,16 @@ ul {
     }
 }
 
+@media screen and (max-width: 600px) {
+    img {
+        width: 150px;
+        height: 150px;
+    };
+    .review-item-solo {
+        font-size: 8px;
+    }
+}
+
 .review-title {
     display: flex;
     flex-direction: column;
