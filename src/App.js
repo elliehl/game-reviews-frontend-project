@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Reviews />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/review/:inc_votes" element={<VoteOnReviews />} />
+          <Route path="/" element={<VoteOnReviews />} />
           <Route path="/categories/:category" element={<Reviews />} />
         </Routes>
       </div>
