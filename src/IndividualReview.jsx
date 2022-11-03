@@ -16,6 +16,7 @@ const IndividualReview = () => {
         getReviewByID(review_id)
         .then(review => {
             setIsLoading(false)
+            console.log(review)
             setReview(review)
         }).catch((err) => {
             setIsLoading(false)
@@ -37,9 +38,11 @@ const IndividualReview = () => {
             <div className="layout-solo">
             <img src={review.review_img_url} alt='The game being reviewed' width='400px' height='400px'/>
             <div className="right-solo">
-            <h3>{review.title}</h3>
+            <h3 className='review-title'>{review.title}</h3>
             Reviewed by: {review.owner}
             <br/>
+            {review.review_body}
+            <br />
             Votes: {review.votes}
             <br />
             Comments({review.comment_count})
