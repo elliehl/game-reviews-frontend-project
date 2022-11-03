@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { getAllReviews } from "./api"
 import { useParams } from "react-router-dom"
 import './Styles/Reviews.css'
+import {Link} from 'react-router-dom'
 
 const Reviews = () => {
     const [reviewsList, setReviewsList] = useState([])
@@ -39,14 +40,13 @@ const Reviews = () => {
                             owner,
                             title,
                             review_id,
-                            category,
                             review_img_url,
                             created_at,
                             votes,
-                            designer,
                             comment_count
                         }) => {
                         return (
+                            <Link to={`/reviews/${review_id}`} key={review_id} >
                             <li key={review_id} className='review-item'>
                                 <div className="top-half">
                                 <div className="top-left">
@@ -65,9 +65,8 @@ const Reviews = () => {
                                 <br/>
                                 Review Date: {new Date(created_at).toISOString().split('T')[0]}
                                 </div>
-                                {/* Category: {category} */}
-                                {/* Designer: {designer} */}
                             </li>
+                            </Link>
                         )
                     })}
                 </ul>

@@ -4,6 +4,7 @@ import Reviews from "./Reviews";
 import NavBar from "./NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Categories from "./Categories";
+import IndividualReview from "./IndividualReview";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Reviews />} />
+          <Route path="/reviews/:review_id" element={<IndividualReview />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:category" element={<Reviews />} />
         </Routes>

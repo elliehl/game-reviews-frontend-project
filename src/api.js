@@ -9,3 +9,11 @@ export const getAllReviews = (category) => {
     return res.data.reviews;
   });
 };
+
+export const getReviewByID = (review_id) => {
+  return gamesAPI
+    .get(`/reviews/${review_id}`, { params: { review_id } })
+    .then((res) => {
+      return res.data.review;
+    });
+};
