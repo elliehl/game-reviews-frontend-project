@@ -16,7 +16,6 @@ const IndividualReview = () => {
         getReviewByID(review_id)
         .then(review => {
             setIsLoading(false)
-            console.log(review)
             setReview(review)
         }).catch((err) => {
             setIsLoading(false)
