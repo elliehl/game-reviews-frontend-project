@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { getAllReviews } from "./api"
 import { useParams } from "react-router-dom"
 import './Styles/Reviews.css'
+import VoteOnReviews from './VoteOnReviews'
 
 const Reviews = () => {
     const [reviewsList, setReviewsList] = useState([])
@@ -54,7 +55,7 @@ const Reviews = () => {
                                 </div>
                                 <div className="top-right">
                                 <h3>{title}</h3>
-                                Votes: {votes}
+                                <VoteOnReviews votes={votes} review_id={review_id}/>
                                 <br />
                                 Comments({comment_count})
                                 <br/>

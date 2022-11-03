@@ -10,6 +10,9 @@ export const getAllReviews = (category) => {
   });
 };
 
-export const updateVoteCount = (inc_votes) => {
-  return gamesAPI.patch("/");
+export const updateVoteCount = (inc_votes, review_id) => {
+  let body = { inc_votes: inc_votes };
+  return gamesAPI.patch(`/reviews/${review_id}`, body).then((res) => {
+    return res.data.review;
+  });
 };
