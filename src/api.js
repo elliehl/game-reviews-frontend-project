@@ -9,3 +9,7 @@ export const getAllReviews = (category) => {
     return res.data.reviews;
   });
 };
+
+export const updateVoteCount = (inc_votes) => {
+  return gamesAPI.patch("/");
+};
