@@ -38,10 +38,14 @@ const IndividualReview = () => {
             <div className="layout-solo">
             <img src={review.review_img_url} alt='The game being reviewed' width='400px' height='400px'/>
             <div className="right-solo">
-            <h3 className='review-title'>{review.title}</h3>
+            <div className='review-title'>
+            <h3>{review.title}</h3>
             Reviewed by: {review.owner}
+            </div>
             <br/>
+            <div className='review-body'>
             {review.review_body}
+            </div>
             <br />
             Votes: {review.votes}
             <br />
