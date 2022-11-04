@@ -10,6 +10,14 @@ export const getAllReviews = (category) => {
   });
 };
 
+export const getReviewByID = (review_id) => {
+  return gamesAPI
+    .get(`/reviews/${review_id}`, { params: { review_id } })
+    .then((res) => {
+      return res.data.review;
+    });
+};
+
 export const updateVoteCount = (inc_votes, review_id) => {
   let body = { inc_votes: inc_votes };
   return gamesAPI.patch(`/reviews/${review_id}`, body).then((res) => {
@@ -17,10 +25,9 @@ export const updateVoteCount = (inc_votes, review_id) => {
   });
 };
 
-export const getReviewByID = (review_id) => {
-  return gamesAPI
-    .get(`/reviews/${review_id}`, { params: { review_id } })
-    .then((res) => {
-      return res.data.review;
-    });
+export const getCommentsByReviewID = (review_id, comments) => {
+  let body = { comments: comments };
+  return gamesAPI.get(`/reviews/${review_id}/comments`, body).then((res) => {
+    return res.data.comments;
+  });
 };

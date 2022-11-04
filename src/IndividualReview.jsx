@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID } from './api'
 import './Styles/IndividualReview.css'
+import ViewComments from './ViewComments'
 import VoteOnReviews from './VoteOnReviews'
 
 const IndividualReview = () => {
     const [review, setReview] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
+    const [isOpen, setIsOpen] = useState(false)
 
     const {review_id} = useParams()
 
@@ -23,6 +25,10 @@ const IndividualReview = () => {
             setError(err)
         })
     }, [])
+    
+    const handleClick = () => {
+        setIsOpen(!isOpen)
+    }
 
     if (isLoading) {
         return <h4>Loading...</h4>
@@ -31,7 +37,7 @@ const IndividualReview = () => {
     if (error !== null) {
         return <h4>Error: Please go back</h4>
     }
-    
+
     return (
         <div>
         <li className='review-item-solo'>
@@ -51,6 +57,9 @@ const IndividualReview = () => {
             <VoteOnReviews votes={review.votes} review_id={review.review_id}/>
             <br />
             Comments({review.comment_count})
+            <button onClick={handleClick} className='comment-button'>
+                {!isOpen ? 'Show Comments' : 'Hide Comments'}
+            </button>
             <br/>
             Category: {review.category}
             <br/>
@@ -58,6 +67,7 @@ const IndividualReview = () => {
             </div>
             </div>
         </li>
+        {isOpen ? <ViewComments comments={review.comments} review_id={review_id}/> : null}
         </div>
     )
 }

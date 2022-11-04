@@ -47,9 +47,9 @@ const VoteOnReviews = (props) => {
 
     return (
         <div className="voting-layout">
-        <button className={isVotedOnUpvote ? 'upvote-clicked' : ''} onClick={() => addUpvote()}>This review was helpful</button>
+        <button className={isVotedOnUpvote ? 'upvote-clicked' : 'not-clicked'} onClick={() => addUpvote()}>This review was helpful</button>
         <h5 aria-label="votes">Votes: {votes + votesCount}</h5>
-        <button className={isVotedOnDownvote ? 'downvote-clicked' : ''} onClick={() => addDownvote()}>This review was not helpful</button>
+        <button className={isVotedOnDownvote ? 'downvote-clicked' : 'not-clicked'} onClick={() => addDownvote()}>This review was not helpful</button>
         </div>
     )
 }
