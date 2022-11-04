@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import { getAllReviews } from "./api"
 import { useParams } from "react-router-dom"
 import './Styles/Reviews.css'
-import VoteOnReviews from './VoteOnReviews'
 import {Link} from 'react-router-dom'
 
 const Reviews = () => {
@@ -55,8 +54,9 @@ const Reviews = () => {
                                 </div>
                                 <div className="top-right">
                                 <h3>{title}</h3>
-                                <VoteOnReviews votes={votes} review_id={review_id}/>
-                                <br />
+                                <br/>
+                                Votes: {votes}
+                                <br/>
                                 Comments({comment_count})
                                 <br/>
                                 </div>

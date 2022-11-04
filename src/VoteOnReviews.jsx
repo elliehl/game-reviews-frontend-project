@@ -2,6 +2,8 @@ import { useState } from "react"
 import * as api from './api'
 import './Styles/VoteOnReviews.css'
 
+// Change this to be on the individual vote page, not on the main review page
+
 const VoteOnReviews = (props) => {
     let {votes, review_id} = props
     const [votesCount, setVotesCount] = useState(0)
@@ -44,7 +46,7 @@ const VoteOnReviews = (props) => {
     }
 
     return (
-        <div>
+        <div className="voting-layout">
         <button className={isVotedOnUpvote ? 'upvote-clicked' : ''} onClick={() => addUpvote()}>This review was helpful</button>
         <h5 aria-label="votes">Votes: {votes + votesCount}</h5>
         <button className={isVotedOnDownvote ? 'downvote-clicked' : ''} onClick={() => addDownvote()}>This review was not helpful</button>

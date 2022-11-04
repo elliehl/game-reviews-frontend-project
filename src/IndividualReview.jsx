@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID } from './api'
 import './Styles/IndividualReview.css'
+import VoteOnReviews from './VoteOnReviews'
 
 const IndividualReview = () => {
     const [review, setReview] = useState({})
@@ -35,7 +36,9 @@ const IndividualReview = () => {
         <div>
         <li className='review-item-solo'>
             <div className="layout-solo">
+            <div className='review-image'>
             <img src={review.review_img_url} alt='The game being reviewed' width='400px' height='400px'/>
+            </div>
             <div className="right-solo">
             <div className='review-title'>
             <h3>{review.title}</h3>
@@ -45,8 +48,7 @@ const IndividualReview = () => {
             <div className='review-body'>
             {review.review_body}
             </div>
-            <br />
-            Votes: {review.votes}
+            <VoteOnReviews votes={review.votes} review_id={review.review_id}/>
             <br />
             Comments({review.comment_count})
             <br/>

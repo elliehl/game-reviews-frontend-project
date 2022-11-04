@@ -4,7 +4,6 @@ import Reviews from "./Reviews";
 import NavBar from "./NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Categories from "./Categories";
-import VoteOnReviews from "./VoteOnReviews";
 import IndividualReview from "./IndividualReview";
 
 function App() {

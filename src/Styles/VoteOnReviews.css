@@ -5,3 +5,9 @@
 .downvote-clicked {
     background-color: rgb(229, 70, 70);
 }
+
+.voting-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
