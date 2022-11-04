@@ -57,7 +57,7 @@ const IndividualReview = () => {
             <VoteOnReviews votes={review.votes} review_id={review.review_id}/>
             <br />
             Comments({review.comment_count})
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className='comment-button'>
                 {!isOpen ? 'Show Comments' : 'Hide Comments'}
             </button>
             <br/>

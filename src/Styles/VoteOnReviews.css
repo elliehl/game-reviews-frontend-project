@@ -11,3 +11,8 @@
     flex-direction: row;
     gap: 20px;
 }
+
+.not-clicked, .upvote-clicked, .downvote-clicked {
+    border-radius: 15px;
+    border: solid 1px black;
+}

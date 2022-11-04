@@ -44,11 +44,20 @@ const ViewComments = ({comments}) => {
                         votes
                     }) => {
                     return (
-                        <li key={comment_id}>
-                        Comment: {body}
-                        Author: {author}
-                        Comment Date: {created_at}
+                        <li key={comment_id} className='comment-display'>
+                        {body}
+                        <br/>
+                        <br/>
+                        Commented by: {author}
+                        <br/>
+                        <div className='bottom-line'>
+                        <div>
                         Votes: {votes}
+                        </div>
+                        <div>
+                        Comment Date: {new Date(created_at).toISOString().split('T')[0]}
+                        </div>
+                        </div>
                         </li>
                     )
                     })}
